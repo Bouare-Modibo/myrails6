@@ -1,0 +1,10 @@
+<hr>
+
+<%= image_tag @pf_items.thumb_image unless @pf_items.thumb_image.nil? %>
+
+<h1><%= @pf_items.title %></h1>
+
+<em><%= @pf_items.subtitle %></em>
+<p><%= @pf_items.body %></p>
+
+<p><%= link_to "Go back", portfolios_path %></p>

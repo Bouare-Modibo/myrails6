@@ -1,0 +1,16 @@
+<h1>Portfolio items</h1>
+
+
+<a href="portfolios/new">Create new Porttfolio</a>
+<p><%= link_to "Create new Portfolio", new_portfolio_path %></p>
+
+<% @pf_items.each do |pf| %>
+    <hr>
+	<h2><%= link_to pf.title, portfolio_path(pf.id) %></h2>
+    <p><%= pf.subtitle %></p>
+    <p><%= pf.body %></p>
+    <%= image_tag pf.thumb_image if !pf.thumb_image.nil? %>
+   
+    <p><%= link_to "Edit this Portfolio", edit_portfolio_path(pf.id) %> </p>
+    <p><%= link_to 'Delete', pf, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% end %>
