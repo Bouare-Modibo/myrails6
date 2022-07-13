@@ -1,17 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Portfolio items</h1>
+<h1>Ruby On Rails Portfolio items</h1>
 
 
 <a href="portfolios/new">Create new Porttfolio</a>
 <p><%= link_to "Create new Portfolio", new_portfolio_path %></p>
-<hr> 
-<h2>Categories</h2>
-    <ul>
-        <li><%= link_to "PHP", php_items_path %></li>
-        <li><%= link_to "Ruby", ruby_items_path %></li>
-    </ul>
-<hr>
 
 <% @pf_items.each do |pf| %>
     <hr>

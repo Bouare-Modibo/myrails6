@@ -1,10 +1,15 @@
 <hr>
 
-<%= image_tag @pf_items.thumb_image unless @pf_items.thumb_image.nil? %>
+<%= image_tag @pf_item.image unless @pf_item.thumb_image.nil? %>
 
-<h1><%= @pf_items.title %></h1>
+<h1><%= @pf_item.title %></h1>
 
-<em><%= @pf_items.subtitle %></em>
-<p><%= @pf_items.body %></p>
+<em><%= @pf_item.subtitle %></em>
+<p><%= @pf_item.body %></p>
+
+<h2>Technology(ies) Used</h2>
+<% @pf_item.technologies.each do |t| %>
+    <p><%= t.name %></p>
+<% end %>
 
 <p><%= link_to "Go back", portfolios_path %></p>

@@ -3,13 +3,24 @@ class PortfoliosController < ApplicationController
 		@pf_items = Portfolio.all 
 	end
 
+	def php
+		@pf_items = Portfolio.PHP
+	end
+
+	def ruby
+		@pf_items = Portfolio.ruby_on_rails_portfolio_items
+	end
+
 	def new
+		#byebug
 		@pf_items = Portfolio.new
+		3.times {@pf_items.technologies.build}
 	end
 
 
 	def create
-	    @pf_items = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+	    @pf_items = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body,
+		 technologies_attributes: [:name]))
 
 	    respond_to do |format|
 		      if @pf_items.save
@@ -39,7 +50,7 @@ class PortfoliosController < ApplicationController
 
 
 	def show
-		@pf_items = Portfolio.find(params[:id])
+		@pf_item = Portfolio.find(params[:id])
 	end
 
 	def destroy
